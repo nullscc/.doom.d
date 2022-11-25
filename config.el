@@ -40,7 +40,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/Documents/orgroam/") ;; TOCONF
+(setq org-directory "~/orgroam/") ;; TOCONF
 
 (use-package! rainbow-delimiters
     :hook (prog-mode . rainbow-delimiters-mode))
@@ -71,12 +71,11 @@
   :config
   ;; If you're using a vertical completion framework, you might want a more informative completion interface
   (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
-  (org-roam-db-autosync-mode)
   ;; If using org-roam-protocol
   (require 'org-roam-protocol)
   :custom
   (org-roam-completion-everywhere t)
-  (org-roam-directory "~/Documents/orgroam") ;; TOCONF
+  (org-roam-directory "~/orgroam") ;; TOCONF
   (org-roam-capture-templates
    '(("d" "default" plain "%?" :target
       (file+head "%<%Y%m%d%H%M%S>-${slug}.org" "#+title: ${title}\n")
@@ -89,8 +88,8 @@
 
 (use-package! ivy-bibtex
   :config
-  (setq bibtex-completion-bibliography "~/Documents/material/paper.bib" ;; TOCONF
-        bibtex-completion-notes-path "~/Documents/orgroam/paper.org" ;; TOCONF
+  (setq bibtex-completion-bibliography "~/material/paper.bib" ;; TOCONF
+        bibtex-completion-notes-path "~/orgroam/paper.org" ;; TOCONF
         bibtex-completion-display-formats '((t . " ${title:*} ${year:4} ${domain:13} ${pubon:11} ${dataset:50} ${=has-pdf=:1}${=has-note=:1}"))
         bibtex-completion-notes-template-one-file "\n* (${year}) - ${title} :${domain}:\n  :PROPERTIES:\n  :Custom_ID: ${=key=}\n  :NOTER_DOCUMENT: ${pdf}\n  :END:\n** Overview\n"
         bibtex-completion-pdf-field "pdf"
@@ -102,7 +101,7 @@
 
 (use-package! org-noter
   :custom
-  (org-noter-default-notes-file-names '("/Users/hoo/Documents/orgroam/paper.org")))
+  (org-noter-default-notes-file-names '("~/orgroam/paper.org")))
 
 (add-hook 'org-mode-hook 'valign-mode)
 
