@@ -104,6 +104,11 @@
   (org-noter-default-notes-file-names '("~/orgroam/paper.org")))
 
 (add-hook 'org-mode-hook 'valign-mode)
+(when (eq system-type 'windows-nt) 
+  (set-next-selection-coding-system 'utf-16-le)
+  (set-selection-coding-system 'utf-16-le)
+  (set-clipboard-coding-system 'utf-16-le)
+)
 
 ;; allow for export=>beamer by placing
 ;; #+LaTeX_CLASS: beamer in org files
