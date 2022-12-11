@@ -66,6 +66,8 @@
           projectile-globally-ignored-files))
 
 (exec-path-from-shell-initialize)
+(setq temporary-file-directory "~/.emacs.d/.local/cache")
+
 
 (use-package! org-roam
   :config
@@ -103,7 +105,7 @@
   :custom
   (org-noter-default-notes-file-names '("~/orgroam/paper.org")))
 
-(add-hook 'org-mode-hook 'valign-mode)
+(add-hook 'org-mode-hook #'valign-mode)
 (when (eq system-type 'windows-nt) 
   (set-next-selection-coding-system 'utf-16-le)
   (set-selection-coding-system 'utf-16-le)
